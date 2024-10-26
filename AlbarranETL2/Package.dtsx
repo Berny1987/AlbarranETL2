@@ -11,15 +11,15 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{F124AE45-76A5-4CFA-8946-8FC6C0BBA11E}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{D96AE81A-8BB5-43E0-AD82-09560C705127}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Albarran]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{B6CB21B5-B1AE-4D58-BA90-1FF357B4FE65}"
+      DTS:DTSID="{66896734-14EE-45C0-A71B-9E9C0CEF0934}"
       DTS:ObjectName="localhost.Albarran">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AlbarranDM]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{B4380223-D89A-4D6D-9473-2571E92ACF04}"
+      DTS:DTSID="{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}"
       DTS:ObjectName="localhost.AlbarranDM">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -75,7 +75,7 @@
                   description="Comando SQL para ejecutar."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Cliente] SET [Apellido_Cliente] = ?,[Fecha_Nacimiento] = ?,[Nombre_Cliente] = ?,[Sexo] = ? WHERE [ID_Cliente] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Cliente] SET [Apellido_Cliente] = ?,[Nombre_Cliente] = ? WHERE [ID_Cliente] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -106,16 +106,10 @@
                       externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
                       lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Fecha_Nacimiento_dt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Nacimiento_dt"
-                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
-                    <inputColumn
                       refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ID_Cliente_int]"
                       cachedDataType="i4"
                       cachedName="ID_Cliente_int"
-                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
                       lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Cliente_int]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Nombre_Cliente_str]"
@@ -123,16 +117,8 @@
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Nombre_Cliente_str"
-                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
                       lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]" />
-                    <inputColumn
-                      refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Sexo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="Sexo_str"
-                      externalMetadataColumnId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -151,7 +137,9 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                      dataType="dbTimeStamp"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Param_1">
                       <properties>
                         <property
@@ -162,34 +150,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Param_3">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Dim_Cliente\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
                       dataType="i4"
-                      name="Param_4">
+                      name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -429,7 +391,7 @@
                   dataType="System.String"
                   description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Apellido_Cliente], [Fecha_Nacimiento], [ID_Cliente], [Nombre_Cliente], [Sexo] FROM [dbo].[Dim_Cliente]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Apellido_Cliente], [ID_Cliente], [Nombre_Cliente] FROM [dbo].[Dim_Cliente]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
@@ -493,19 +455,6 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Fecha_Nacimiento_dt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Nacimiento_dt"
-                      externalMetadataColumnId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Fecha_Nacimiento]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Cliente_int]"
                       cachedDataType="i4"
                       cachedName="ID_Cliente_int"
@@ -533,21 +482,6 @@
                           typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Sexo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="Sexo_str"
-                      externalMetadataColumnId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Sexo]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -558,10 +492,6 @@
                       length="255"
                       name="Apellido_Cliente" />
                     <externalMetadataColumn
-                      refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Fecha_Nacimiento]"
-                      dataType="dbTimeStamp"
-                      name="Fecha_Nacimiento" />
-                    <externalMetadataColumn
                       refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Cliente]"
                       dataType="i4"
                       name="ID_Cliente" />
@@ -571,12 +501,6 @@
                       dataType="str"
                       length="255"
                       name="Nombre_Cliente" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Cliente\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Sexo" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -726,19 +650,19 @@
                       externalMetadataColumnId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apellido_Cliente]"
                       lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Sexo_str]"
+                      refId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[sexo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
-                      cachedName="Sexo_str"
+                      cachedName="sexo"
                       externalMetadataColumnId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Nacimiento_dt]"
+                      refId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[fecha_nacimiento]"
                       cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Nacimiento_dt"
+                      cachedName="fecha_nacimiento"
                       externalMetadataColumnId="Package\Dim_Cliente\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3649,6 +3573,20 @@ FROM            ventas</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Dim_TipoDocumento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[tipo_documento]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipo_documento"
+                      externalMetadataColumnId="Package\Dim_TipoDocumento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Tipo_Documento]"
+                      lineageId="Package\Dim_TipoDocumento\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tipo_documento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Dim_TipoDocumento\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Ttipo_Documento_str]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -3803,12 +3741,6 @@ FROM            ventas</property>
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[venta_id]"
-                      cachedDataType="i4"
-                      cachedName="venta_id"
-                      externalMetadataColumnId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TipoDocumento]"
-                      lineageId="Package\Dim_TipoDocumento\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[venta_id]" />
-                    <inputColumn
                       refId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Ttipo_Documento_str]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -3816,6 +3748,12 @@ FROM            ventas</property>
                       cachedName="Ttipo_Documento_str"
                       externalMetadataColumnId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo_Documento]"
                       lineageId="Package\Dim_TipoDocumento\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ttipo_Documento_str]" />
+                    <inputColumn
+                      refId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[ID_TipoDocumento_int]"
+                      cachedDataType="i4"
+                      cachedName="ID_TipoDocumento_int"
+                      externalMetadataColumnId="Package\Dim_TipoDocumento\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TipoDocumento]"
+                      lineageId="Package\Dim_TipoDocumento\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_TipoDocumento_int]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4043,7 +3981,7 @@ FROM            ventas</property>
                   description="Comando SQL para ejecutar."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Vendedor] SET [Apellido_Vendedor] = ?,[Cargo] = ?,[Nombre_Vendedor] = ? WHERE [ID_Vendedor] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Vendedor] SET [Apellido_Vendedor] = ?,[Nombre_Vendedor] = ? WHERE [ID_Vendedor] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -4074,18 +4012,10 @@ FROM            ventas</property>
                       externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
                       lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Vendedor_str]" />
                     <inputColumn
-                      refId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Cargo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Cargo_str"
-                      externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                      lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Cargo_str]" />
-                    <inputColumn
                       refId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ID_Vendedor_int]"
                       cachedDataType="i4"
                       cachedName="ID_Vendedor_int"
-                      externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
                       lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]" />
                     <inputColumn
                       refId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Nombre_Vendedor_str]"
@@ -4093,7 +4023,7 @@ FROM            ventas</property>
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Nombre_Vendedor_str"
-                      externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
                       lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Vendedor_str]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -4126,21 +4056,8 @@ FROM            ventas</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Dim_Vendedor\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
                       dataType="i4"
-                      name="Param_3">
+                      name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -4379,7 +4296,7 @@ FROM            ventas</property>
                   dataType="System.String"
                   description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Apellido_Vendedor], [Cargo], [Fecha_Contrato], [ID_Vendedor], [Nombre_Vendedor] FROM [dbo].[Dim_Vendedor]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Apellido_Vendedor], [ID_Vendedor], [Nombre_Vendedor] FROM [dbo].[Dim_Vendedor]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
@@ -4443,34 +4360,6 @@ FROM            ventas</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Cargo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Cargo_str"
-                      externalMetadataColumnId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Cargo]"
-                      lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Cargo_str]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Fecha_Contrato_dt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Contrato_dt"
-                      externalMetadataColumnId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Fecha_Contrato]"
-                      lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Contrato_dt]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Vendedor_int]"
                       cachedDataType="i4"
                       cachedName="ID_Vendedor_int"
@@ -4507,16 +4396,6 @@ FROM            ventas</property>
                       dataType="str"
                       length="255"
                       name="Apellido_Vendedor" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Cargo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Cargo" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Fecha_Contrato]"
-                      dataType="dbTimeStamp"
-                      name="Fecha_Contrato" />
                     <externalMetadataColumn
                       refId="Package\Dim_Vendedor\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Vendedor]"
                       dataType="i4"
@@ -4684,11 +4563,11 @@ FROM            ventas</property>
                       externalMetadataColumnId="Package\Dim_Vendedor\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cargo]"
                       lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Cargo_str]" />
                     <inputColumn
-                      refId="Package\Dim_Vendedor\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Contrato_dt]"
+                      refId="Package\Dim_Vendedor\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[fecha_contrato]"
                       cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Contrato_dt"
+                      cachedName="fecha_contrato"
                       externalMetadataColumnId="Package\Dim_Vendedor\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Contrato]"
-                      lineageId="Package\Dim_Vendedor\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Contrato_dt]" />
+                      lineageId="Package\Dim_Vendedor\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_contrato]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4716,7 +4595,7 @@ FROM            ventas</property>
                       name="Cargo" />
                     <externalMetadataColumn
                       refId="Package\Dim_Vendedor\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Contrato]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="Fecha_Contrato" />
                   </externalMetadataColumns>
                 </input>
@@ -4993,7 +4872,7 @@ FROM            cargos INNER JOIN
                   description="Comando SQL para ejecutar."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Fact_Ventas] SET [Cantidad_Vendida] = ?,[Costo_Total] = ?,[Descuento] = ?,[Precio_Unitario] = ? WHERE [ID_Venta] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Fact_Ventas] SET [Cantidad_Vendida] = ?,[Costo_Total] = ?,[Descuento] = ?,[Ingresos] = ?,[Precio_Unitario] = ? WHERE [ID_Venta] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -5030,26 +4909,34 @@ FROM            cargos INNER JOIN
                       externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
                       lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Costo_Total_dec]" />
                     <inputColumn
-                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Descuento_dec]"
+                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[descuento]"
                       cachedDataType="numeric"
-                      cachedName="Descuento_dec"
-                      cachedPrecision="10"
+                      cachedName="descuento"
+                      cachedPrecision="5"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Descuento_dec]" />
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descuento]" />
                     <inputColumn
-                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[empleado_id]"
+                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ID_Venta_int]"
                       cachedDataType="i4"
-                      cachedName="empleado_id"
-                      externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]" />
+                      cachedName="ID_Venta_int"
+                      externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]" />
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Ingresos_dec]"
+                      cachedDataType="numeric"
+                      cachedName="Ingresos_dec"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Precio_Unitario_dec]"
                       cachedDataType="numeric"
                       cachedName="Precio_Unitario_dec"
                       cachedPrecision="10"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
                       lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Precio_Unitario_dec]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -5106,8 +4993,21 @@ FROM            cargos INNER JOIN
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Fact_Ventas\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
                       dataType="i4"
-                      name="Param_4">
+                      name="Param_5">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5163,13 +5063,6 @@ FROM            cargos INNER JOIN
                   name="Entrada de conversión de datos">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Ingresos]"
-                      cachedDataType="numeric"
-                      cachedName="Ingresos"
-                      cachedPrecision="22"
-                      cachedScale="2"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Ingresos]" />
-                    <inputColumn
                       refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[venta_id]"
                       cachedDataType="i4"
                       cachedName="venta_id"
@@ -5184,16 +5077,6 @@ FROM            cargos INNER JOIN
                       cachedDataType="i4"
                       cachedName="cliente_id"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cliente_id]" />
-                    <inputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[sucursal_id]"
-                      cachedDataType="i4"
-                      cachedName="sucursal_id"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]" />
-                    <inputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[empleado_id]"
-                      cachedDataType="i4"
-                      cachedName="empleado_id"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[precio_unitario]"
                       cachedDataType="i4"
@@ -5212,10 +5095,15 @@ FROM            cargos INNER JOIN
                       cachedName="cantidad"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cantidad]" />
                     <inputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Costo_Total]"
+                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[sucursal_id]"
                       cachedDataType="i4"
-                      cachedName="Costo_Total"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]" />
+                      cachedName="sucursal_id"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]" />
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[id_vendedor]"
+                      cachedDataType="i4"
+                      cachedName="id_vendedor"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_vendedor]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Utilidad_Bruta]"
                       cachedDataType="numeric"
@@ -5223,6 +5111,18 @@ FROM            cargos INNER JOIN
                       cachedPrecision="14"
                       cachedScale="2"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Utilidad_Bruta]" />
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Costo_Total]"
+                      cachedDataType="i4"
+                      cachedName="Costo_Total"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]" />
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Ingresos]"
+                      cachedDataType="numeric"
+                      cachedName="Ingresos"
+                      cachedPrecision="22"
+                      cachedScale="2"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Ingresos]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5234,28 +5134,6 @@ FROM            cargos INNER JOIN
                   name="Salida de conversión de datos"
                   synchronousInputId="Package\Fact_Ventas\Conversión de datos.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]"
-                      name="Ingresos_dec"
-                      precision="22"
-                      scale="2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Ingresos]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]"
                       dataType="i4"
@@ -5310,46 +5188,6 @@ FROM            cargos INNER JOIN
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
                           name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cliente_id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Sucursal_int]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Sucursal_int]"
-                      name="ID_Sucursal_int"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]"
-                      name="ID_Vendedor_int"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -5421,6 +5259,68 @@ FROM            cargos INNER JOIN
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Sucursal_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Sucursal_int]"
+                      name="ID_Sucursal_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]"
+                      name="ID_Vendedor_int"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_vendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]"
+                      name="Utilidad_Bruta_dec"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Utilidad_Bruta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Costo_Total_dec]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
@@ -5443,13 +5343,13 @@ FROM            cargos INNER JOIN
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]"
+                      refId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]"
-                      name="Utilidad_Bruta_dec"
-                      precision="23"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]"
+                      name="Ingresos_dec"
+                      precision="10"
                       scale="2"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -5457,7 +5357,7 @@ FROM            cargos INNER JOIN
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Utilidad_Bruta]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Ingresos]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -5503,7 +5403,7 @@ FROM            cargos INNER JOIN
                   dataType="System.String"
                   description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Cantidad_Vendida], [Costo_Total], [Descuento], [ID_Cliente], [ID_Producto], [ID_Sucursal], [ID_Tiempo], [ID_TipoDocumento], [ID_Vendedor], [ID_Venta], [Precio_Unitario] FROM [dbo].[Fact_Ventas]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Cantidad_Vendida], [Costo_Total], [Descuento], [ID_Cliente], [ID_Producto], [ID_Sucursal], [ID_Tiempo], [ID_Vendedor], [ID_Venta], [Ingresos], [Precio_Unitario], [Utilidad_Bruta] FROM [dbo].[Fact_Ventas]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
@@ -5580,13 +5480,13 @@ FROM            cargos INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Descuento_dec]"
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[descuento]"
                       cachedDataType="numeric"
-                      cachedName="Descuento_dec"
-                      cachedPrecision="10"
+                      cachedName="descuento"
+                      cachedPrecision="5"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Descuento]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Descuento_dec]">
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descuento]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5634,24 +5534,11 @@ FROM            cargos INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[cliente_id]"
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[venta_id]"
                       cachedDataType="i4"
-                      cachedName="cliente_id"
+                      cachedName="venta_id"
                       externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Tiempo]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cliente_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Venta_int]"
-                      cachedDataType="i4"
-                      cachedName="ID_Venta_int"
-                      externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_TipoDocumento]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]">
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[venta_id]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -5673,16 +5560,31 @@ FROM            cargos INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[empleado_id]"
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Venta_int]"
                       cachedDataType="i4"
-                      cachedName="empleado_id"
+                      cachedName="ID_Venta_int"
                       externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Venta]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]">
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]">
                       <properties>
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
                           typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Ingresos_dec]"
+                      cachedDataType="numeric"
+                      cachedName="Ingresos_dec"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Ingresos]"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -5698,6 +5600,21 @@ FROM            cargos INNER JOIN
                           dataType="System.Int32"
                           name="ColumnType"
                           typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[Utilidad_Bruta_dec]"
+                      cachedDataType="numeric"
+                      cachedName="Utilidad_Bruta_dec"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Utilidad_Bruta]"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -5736,10 +5653,6 @@ FROM            cargos INNER JOIN
                       dataType="i4"
                       name="ID_Tiempo" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_TipoDocumento]"
-                      dataType="i4"
-                      name="ID_TipoDocumento" />
-                    <externalMetadataColumn
                       refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Vendedor]"
                       dataType="i4"
                       name="ID_Vendedor" />
@@ -5748,9 +5661,21 @@ FROM            cargos INNER JOIN
                       dataType="i4"
                       name="ID_Venta" />
                     <externalMetadataColumn
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Ingresos]"
+                      dataType="numeric"
+                      name="Ingresos"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
                       refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Precio_Unitario]"
                       dataType="numeric"
                       name="Precio_Unitario"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Ventas\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[Utilidad_Bruta]"
+                      dataType="numeric"
+                      name="Utilidad_Bruta"
                       precision="10"
                       scale="2" />
                   </externalMetadataColumns>
@@ -5880,11 +5805,11 @@ FROM            cargos INNER JOIN
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[empleado_id]"
+                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[ID_Venta_int]"
                       cachedDataType="i4"
-                      cachedName="empleado_id"
+                      cachedName="ID_Venta_int"
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Venta]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]" />
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[ID_Producto_int]"
                       cachedDataType="i4"
@@ -5910,17 +5835,11 @@ FROM            cargos INNER JOIN
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Vendedor]"
                       lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Vendedor_int]" />
                     <inputColumn
-                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[cliente_id]"
+                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[venta_id]"
                       cachedDataType="i4"
-                      cachedName="cliente_id"
+                      cachedName="venta_id"
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Tiempo]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cliente_id]" />
-                    <inputColumn
-                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[ID_Venta_int]"
-                      cachedDataType="i4"
-                      cachedName="ID_Venta_int"
-                      externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_TipoDocumento]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_Venta_int]" />
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[venta_id]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Cantidad_Vendida_int]"
                       cachedDataType="i4"
@@ -5936,13 +5855,21 @@ FROM            cargos INNER JOIN
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Precio_Unitario]"
                       lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Precio_Unitario_dec]" />
                     <inputColumn
-                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Descuento_dec]"
+                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[descuento]"
                       cachedDataType="numeric"
-                      cachedName="Descuento_dec"
-                      cachedPrecision="10"
+                      cachedName="descuento"
+                      cachedPrecision="5"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descuento]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Descuento_dec]" />
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[descuento]" />
+                    <inputColumn
+                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Ingresos_dec]"
+                      cachedDataType="numeric"
+                      cachedName="Ingresos_dec"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ingresos]"
+                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]" />
                     <inputColumn
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Costo_Total_dec]"
                       cachedDataType="numeric"
@@ -5955,18 +5882,10 @@ FROM            cargos INNER JOIN
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Utilidad_Bruta_dec]"
                       cachedDataType="numeric"
                       cachedName="Utilidad_Bruta_dec"
-                      cachedPrecision="23"
+                      cachedPrecision="10"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Utilidad_Bruta]"
                       lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Utilidad_Bruta_dec]" />
-                    <inputColumn
-                      refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Ingresos_dec]"
-                      cachedDataType="numeric"
-                      cachedName="Ingresos_dec"
-                      cachedPrecision="22"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ingresos]"
-                      lineageId="Package\Fact_Ventas\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Ingresos_dec]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6018,7 +5937,7 @@ FROM            cargos INNER JOIN
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ingresos]"
                       dataType="numeric"
                       name="Ingresos"
-                      precision="22"
+                      precision="10"
                       scale="2" />
                     <externalMetadataColumn
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Costo_Total]"
@@ -6030,7 +5949,7 @@ FROM            cargos INNER JOIN
                       refId="Package\Fact_Ventas\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Utilidad_Bruta]"
                       dataType="numeric"
                       name="Utilidad_Bruta"
-                      precision="23"
+                      precision="10"
                       scale="2" />
                   </externalMetadataColumns>
                 </input>
@@ -6085,10 +6004,9 @@ FROM            cargos INNER JOIN
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        ventas.venta_id, cargos.cargo_id, categorias.categoria_id, sucursales.sucursal_id, clientes.cliente_id, comunas.comuna_id, empleados.empleado_id, productos.producto_id, detalle_ventas.cantidad, 
-                         detalle_ventas.precio_unitario, detalle_ventas.descuento, detalle_ventas.cantidad * detalle_ventas.precio_unitario AS Costo_Total, 
-                         detalle_ventas.cantidad * detalle_ventas.precio_unitario - detalle_ventas.descuento AS Ingresos, (detalle_ventas.cantidad * detalle_ventas.precio_unitario - detalle_ventas.descuento) 
-                         - detalle_ventas.cantidad * detalle_ventas.precio_unitario AS Utilidad_Bruta
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        ventas.venta_id, productos.producto_id, clientes.cliente_id, sucursales.sucursal_id, empleados.empleado_id AS id_vendedor, detalle_ventas.cantidad, detalle_ventas.precio_unitario, detalle_ventas.descuento, 
+                         detalle_ventas.cantidad * detalle_ventas.precio_unitario - detalle_ventas.descuento AS Ingresos, detalle_ventas.cantidad * detalle_ventas.precio_unitario AS Costo_Total, 
+                         (detalle_ventas.cantidad * detalle_ventas.precio_unitario - detalle_ventas.descuento) - detalle_ventas.cantidad * detalle_ventas.precio_unitario AS Utilidad_Bruta
 FROM            clientes INNER JOIN
                          cargos INNER JOIN
                          empleados ON cargos.cargo_id = empleados.cargo_id INNER JOIN
@@ -6172,24 +6090,6 @@ FROM            clientes INNER JOIN
                       name="cliente_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sucursal_id]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]"
-                      name="sucursal_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[empleado_id]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[empleado_id]"
-                      name="empleado_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[precio_unitario]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
@@ -6219,15 +6119,6 @@ FROM            clientes INNER JOIN
                       name="cantidad"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Costo_Total]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]"
-                      name="Costo_Total"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Utilidad_Bruta]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
@@ -6239,31 +6130,31 @@ FROM            clientes INNER JOIN
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cargo_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cargo_id]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[cargo_id]"
-                      name="cargo_id"
+                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sucursal_id]"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sucursal_id]"
+                      name="sucursal_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_vendedor]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[categoria_id]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[categoria_id]"
-                      name="categoria_id"
+                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_vendedor]"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[id_vendedor]"
+                      name="id_vendedor"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[comuna_id]"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna_id]"
-                      name="comuna_id"
+                      externalMetadataColumnId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Costo_Total]"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Costo_Total]"
+                      name="Costo_Total"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -6287,14 +6178,6 @@ FROM            clientes INNER JOIN
                       dataType="i4"
                       name="cliente_id" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sucursal_id]"
-                      dataType="i4"
-                      name="sucursal_id" />
-                    <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[empleado_id]"
-                      dataType="i4"
-                      name="empleado_id" />
-                    <externalMetadataColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[precio_unitario]"
                       dataType="i4"
                       name="precio_unitario" />
@@ -6309,27 +6192,23 @@ FROM            clientes INNER JOIN
                       dataType="i4"
                       name="cantidad" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Costo_Total]"
-                      dataType="i4"
-                      name="Costo_Total" />
-                    <externalMetadataColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Utilidad_Bruta]"
                       dataType="numeric"
                       name="Utilidad_Bruta"
                       precision="14"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cargo_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sucursal_id]"
                       dataType="i4"
-                      name="cargo_id" />
+                      name="sucursal_id" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[categoria_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[id_vendedor]"
                       dataType="i4"
-                      name="categoria_id" />
+                      name="id_vendedor" />
                     <externalMetadataColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[comuna_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Costo_Total]"
                       dataType="i4"
-                      name="comuna_id" />
+                      name="Costo_Total" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6343,16 +6222,6 @@ FROM            clientes INNER JOIN
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[venta_id]"
                       name="venta_id" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cargo_id]"
-                      dataType="i4"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cargo_id]"
-                      name="cargo_id" />
-                    <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[categoria_id]"
-                      dataType="i4"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[categoria_id]"
-                      name="categoria_id" />
-                    <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[producto_id]"
                       dataType="i4"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[producto_id]"
@@ -6363,20 +6232,15 @@ FROM            clientes INNER JOIN
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cliente_id]"
                       name="cliente_id" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[comuna_id]"
-                      dataType="i4"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[comuna_id]"
-                      name="comuna_id" />
-                    <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sucursal_id]"
                       dataType="i4"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sucursal_id]"
                       name="sucursal_id" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[empleado_id]"
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_vendedor]"
                       dataType="i4"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[empleado_id]"
-                      name="empleado_id" />
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[id_vendedor]"
+                      name="id_vendedor" />
                     <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cantidad]"
                       dataType="i4"
@@ -6395,17 +6259,17 @@ FROM            clientes INNER JOIN
                       precision="5"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Costo_Total]"
-                      dataType="i4"
-                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Costo_Total]"
-                      name="Costo_Total" />
-                    <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Ingresos]"
                       dataType="numeric"
                       lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Ingresos]"
                       name="Ingresos"
                       precision="13"
                       scale="2" />
+                    <outputColumn
+                      refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Costo_Total]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Costo_Total]"
+                      name="Costo_Total" />
                     <outputColumn
                       refId="Package\Fact_Ventas\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Utilidad_Bruta]"
                       dataType="numeric"
@@ -6771,14 +6635,6 @@ FROM            clientes INNER JOIN
           Size="175,42"
           Id="Package\Dim_Cliente\Conversión de datos"
           TopLeft="230.5,107.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Cliente\Comando de OLE DB"
-          TopLeft="342.5,331.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_Cliente\Insert Destination"
-          TopLeft="76.5000000000001,328.5" />
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
           TopLeft="318,47.5">
@@ -6823,75 +6679,83 @@ FROM            clientes INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Cliente.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="352.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.5,80"
-              Start="0,0"
-              End="78.5,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.3545706371191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.3545706371191"
-                    Point2="0,32.3545706371191"
-                    Point3="4,32.3545706371191" />
-                  <mssgle:LineSegment
-                    End="74.5,32.3545706371191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74.5,32.3545706371191"
-                    Point2="78.5,32.3545706371191"
-                    Point3="78.5,36.3545706371191" />
-                  <mssgle:LineSegment
-                    End="78.5,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-65.0032421875,37.3545706371191,208.506484375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_Cliente\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Nueva salida]"
           TopLeft="283.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-125.5,77"
+              EndConnector="-196.5,60"
               Start="0,0"
-              End="-125.5,69.5">
+              End="-196.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.1412742382271" />
+                    End="0,20.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.1412742382271"
-                    Point2="0,31.1412742382271"
-                    Point3="-4,31.1412742382271" />
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
                   <mssgle:LineSegment
-                    End="-121.5,31.1412742382271" />
+                    End="-192.5,24.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="-121.5,31.1412742382271"
-                    Point2="-125.5,31.1412742382271"
-                    Point3="-125.5,35.1412742382271" />
+                    Point1="-192.5,24.2659279778393"
+                    Point2="-196.5,24.2659279778393"
+                    Point3="-196.5,28.2659279778393" />
                   <mssgle:LineSegment
-                    End="-125.5,69.5" />
+                    End="-196.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-91.038359375,36.1412742382271,56.57671875,9.7490234375"
+              BoundingBox="-126.538359375,29.2659279778393,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Cliente\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_Cliente.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="352.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,60"
+              Start="0,0"
+              End="-34.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-30.5,24.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24.2659279778393"
+                    Point2="-34.5,24.2659279778393"
+                    Point3="-34.5,28.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-34.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6906,7 +6770,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Cliente]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -6916,10 +6780,10 @@ FROM            clientes INNER JOIN
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Fecha_Nacimiento_dt]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[fecha_nacimiento]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Fecha_Nacimiento&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Cliente_int]&lt;/IdentificationString&gt;
@@ -6934,10 +6798,10 @@ FROM            clientes INNER JOIN
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Sexo_str]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[sexo]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Sexo&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
@@ -6981,17 +6845,9 @@ FROM            clientes INNER JOIN
           Id="Package\Dim_Producto\Dimensión de variación lenta"
           TopLeft="210.5,209.5" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_Producto\Insert Destination"
-          TopLeft="84.5000000000001,346.5" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Dim_Producto\Conversión de datos"
           TopLeft="230.5,107.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Producto\Comando de OLE DB"
-          TopLeft="343.5,324.5" />
         <EdgeLayout
           Id="Package\Dim_Producto.Paths[Salida de origen de OLE DB]"
           TopLeft="318,47.5">
@@ -7036,75 +6892,83 @@ FROM            clientes INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Producto.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="352.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="79.5,73"
-              Start="0,0"
-              End="79.5,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5235457063712" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5235457063712"
-                    Point2="0,29.5235457063712"
-                    Point3="4,29.5235457063712" />
-                  <mssgle:LineSegment
-                    End="75.5,29.5235457063712" />
-                  <mssgle:CubicBezierSegment
-                    Point1="75.5,29.5235457063712"
-                    Point2="79.5,29.5235457063712"
-                    Point3="79.5,33.5235457063712" />
-                  <mssgle:LineSegment
-                    End="79.5,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-64.5032421875,34.5235457063712,208.506484375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_Producto\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\Dim_Producto.Paths[Nueva salida]"
           TopLeft="283.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-117.5,95"
+              EndConnector="-196.5,60"
               Start="0,0"
-              End="-117.5,87.5">
+              End="-196.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.4210526315789" />
+                    End="0,20.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.4210526315789"
-                    Point2="0,38.4210526315789"
-                    Point3="-4,38.4210526315789" />
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
                   <mssgle:LineSegment
-                    End="-113.5,38.4210526315789" />
+                    End="-192.5,24.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="-113.5,38.4210526315789"
-                    Point2="-117.5,38.4210526315789"
-                    Point3="-117.5,42.4210526315789" />
+                    Point1="-192.5,24.2659279778393"
+                    Point2="-196.5,24.2659279778393"
+                    Point3="-196.5,28.2659279778393" />
                   <mssgle:LineSegment
-                    End="-117.5,87.5" />
+                    End="-196.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.038359375,43.4210526315789,56.57671875,9.7490234375"
+              BoundingBox="-126.538359375,29.2659279778393,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Producto\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="352.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,60"
+              Start="0,0"
+              End="-34.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-30.5,24.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24.2659279778393"
+                    Point2="-34.5,24.2659279778393"
+                    Point3="-34.5,28.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-34.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7127,7 +6991,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Producto]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -7180,13 +7044,17 @@ FROM            clientes INNER JOIN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,42"
-          Id="Package\Dim_Sucursal\Origen de OLE DB"
-          TopLeft="236,5.5" />
+          Size="215,42"
+          Id="Package\Dim_Sucursal\Dimensión de variación lenta"
+          TopLeft="210.5,209.5" />
         <NodeLayout
           Size="175,42"
           Id="Package\Dim_Sucursal\Conversión de datos"
           TopLeft="230.5,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Dim_Sucursal\Origen de OLE DB"
+          TopLeft="236,5.5" />
         <EdgeLayout
           Id="Package\Dim_Sucursal.Paths[Salida de origen de OLE DB]"
           TopLeft="318,47.5">
@@ -7209,10 +7077,6 @@ FROM            clientes INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="215,42"
-          Id="Package\Dim_Sucursal\Dimensión de variación lenta"
-          TopLeft="210.5,209.5" />
         <EdgeLayout
           Id="Package\Dim_Sucursal.Paths[Salida de conversión de datos]"
           TopLeft="318,149.5">
@@ -7318,6 +7182,63 @@ FROM            clientes INNER JOIN
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Sucursal\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Sucursal\Dimensión de variación lenta">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Comuna_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Sucursal_int]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Nombre_Sucursal_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Dim_Tiempo">
     <LayoutInfo>
@@ -7332,53 +7253,57 @@ FROM            clientes INNER JOIN
           Id="Package\Dim_Tiempo\Origen de OLE DB"
           TopLeft="236,5.5" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_Tiempo\Insert Destination"
-          TopLeft="5.50000000000006,311.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Tiempo\Comando de OLE DB"
-          TopLeft="229.5,311.5" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Dim_Tiempo\Conversión de datos"
           TopLeft="230.5,107.5" />
         <EdgeLayout
-          Id="Package\Dim_Tiempo.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="352.5,251.5">
+          Id="Package\Dim_Tiempo.Paths[Salida de origen de OLE DB]"
+          TopLeft="318,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-34.5,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-34.5,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2659279778393" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2659279778393"
-                    Point2="0,24.2659279778393"
-                    Point3="-4,24.2659279778393" />
-                  <mssgle:LineSegment
-                    End="-30.5,24.2659279778393" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,24.2659279778393"
-                    Point2="-34.5,24.2659279778393"
-                    Point3="-34.5,28.2659279778393" />
-                  <mssgle:LineSegment
-                    End="-34.5,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_Tiempo.Paths[Salida de conversión de datos]"
+          TopLeft="318,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_Tiempo\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\Dim_Tiempo.Paths[Nueva salida]"
           TopLeft="283.5,251.5">
@@ -7415,51 +7340,43 @@ FROM            clientes INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Tiempo\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
         <EdgeLayout
-          Id="Package\Dim_Tiempo.Paths[Salida de origen de OLE DB]"
-          TopLeft="318,47.5">
+          Id="Package\Dim_Tiempo.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="352.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-34.5,60"
               Start="0,0"
-              End="0,52.5">
+              End="-34.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,20.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-30.5,24.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24.2659279778393"
+                    Point2="-34.5,24.2659279778393"
+                    Point3="-34.5,28.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-34.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Tiempo.Paths[Salida de conversión de datos]"
-          TopLeft="318,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7482,7 +7399,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Tiempo]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -7537,14 +7454,6 @@ FROM            clientes INNER JOIN
           Id="Package\Dim_TipoDocumento\Origen de OLE DB"
           TopLeft="236,5.5" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_TipoDocumento\Insert Destination"
-          TopLeft="5.50000000000006,311.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_TipoDocumento\Comando de OLE DB"
-          TopLeft="229.5,311.5" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Dim_TipoDocumento\Conversión de datos"
           TopLeft="230.5,107.5" />
@@ -7592,42 +7501,10 @@ FROM            clientes INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_TipoDocumento.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="352.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.5,60"
-              Start="0,0"
-              End="-34.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2659279778393" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2659279778393"
-                    Point2="0,24.2659279778393"
-                    Point3="-4,24.2659279778393" />
-                  <mssgle:LineSegment
-                    End="-30.5,24.2659279778393" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,24.2659279778393"
-                    Point2="-34.5,24.2659279778393"
-                    Point3="-34.5,28.2659279778393" />
-                  <mssgle:LineSegment
-                    End="-34.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_TipoDocumento\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\Dim_TipoDocumento.Paths[Nueva salida]"
           TopLeft="283.5,251.5">
@@ -7664,6 +7541,46 @@ FROM            clientes INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_TipoDocumento\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_TipoDocumento.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="352.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,60"
+              Start="0,0"
+              End="-34.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-30.5,24.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24.2659279778393"
+                    Point2="-34.5,24.2659279778393"
+                    Point3="-34.5,28.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-34.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7683,7 +7600,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_TipoDocumento]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -7728,10 +7645,6 @@ FROM            clientes INNER JOIN
           Id="Package\Dim_Vendedor\Dimensión de variación lenta"
           TopLeft="210.5,209.5" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_Vendedor\Insert Destination"
-          TopLeft="110.5,340.5" />
-        <NodeLayout
           Size="164,42"
           Id="Package\Dim_Vendedor\Origen de OLE DB"
           TopLeft="236,5.5" />
@@ -7739,10 +7652,6 @@ FROM            clientes INNER JOIN
           Size="175,42"
           Id="Package\Dim_Vendedor\Conversión de datos"
           TopLeft="230.5,107.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_Vendedor\Comando de OLE DB"
-          TopLeft="332.5,329.5" />
         <EdgeLayout
           Id="Package\Dim_Vendedor.Paths[Salida de origen de OLE DB]"
           TopLeft="318,47.5">
@@ -7762,9 +7671,7 @@ FROM            clientes INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7786,80 +7693,86 @@ FROM            clientes INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim_Vendedor.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="352.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.5,78"
-              Start="0,0"
-              End="68.5,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5457063711911" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5457063711911"
-                    Point2="0,31.5457063711911"
-                    Point3="4,31.5457063711911" />
-                  <mssgle:LineSegment
-                    End="64.5,31.5457063711911" />
-                  <mssgle:CubicBezierSegment
-                    Point1="64.5,31.5457063711911"
-                    Point2="68.5,31.5457063711911"
-                    Point3="68.5,35.5457063711911" />
-                  <mssgle:LineSegment
-                    End="68.5,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.0032421875,36.5457063711911,208.506484375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_Vendedor\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\Dim_Vendedor.Paths[Nueva salida]"
           TopLeft="283.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-91.5,89"
+              EndConnector="-196.5,60"
               Start="0,0"
-              End="-91.5,81.5">
+              End="-196.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.994459833795" />
+                    End="0,20.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.994459833795"
-                    Point2="0,35.994459833795"
-                    Point3="-4,35.994459833795" />
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
                   <mssgle:LineSegment
-                    End="-87.5,35.994459833795" />
+                    End="-192.5,24.2659279778393" />
                   <mssgle:CubicBezierSegment
-                    Point1="-87.5,35.994459833795"
-                    Point2="-91.5,35.994459833795"
-                    Point3="-91.5,39.994459833795" />
+                    Point1="-192.5,24.2659279778393"
+                    Point2="-196.5,24.2659279778393"
+                    Point3="-196.5,28.2659279778393" />
                   <mssgle:LineSegment
-                    End="-91.5,81.5" />
+                    End="-196.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.038359375,40.994459833795,56.57671875,9.7490234375"
+              BoundingBox="-126.538359375,29.2659279778393,56.57671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Dim_Vendedor\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_Vendedor.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="352.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,60"
+              Start="0,0"
+              End="-34.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2659279778393"
+                    Point2="0,24.2659279778393"
+                    Point3="-4,24.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-30.5,24.2659279778393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24.2659279778393"
+                    Point2="-34.5,24.2659279778393"
+                    Point3="-34.5,28.2659279778393" />
+                  <mssgle:LineSegment
+                    End="-34.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.5032421875,29.2659279778393,208.506484375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7882,7 +7795,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Vendedor]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -7895,13 +7808,13 @@ FROM            clientes INNER JOIN
       &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Cargo_str]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Cargo&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Fecha_Contrato_dt]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[fecha_contrato]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Fecha_Contrato&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Vendedor_int]&lt;/IdentificationString&gt;
@@ -8080,63 +7993,6 @@ FROM            clientes INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Sucursal\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Sucursal\Dimensión de variación lenta">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Comuna_str]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Sucursal_int]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Nombre_Sucursal_str]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Fact_Ventas\Origen de OLE DB">
     <Properties>
       <Property>
@@ -8152,7 +8008,7 @@ FROM            clientes INNER JOIN
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{B4380223-D89A-4D6D-9473-2571E92ACF04}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{87D095BB-B505-41BD-A1DE-8ADCD7AB852F}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Fact_Ventas]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -8168,7 +8024,7 @@ FROM            clientes INNER JOIN
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Descuento_dec]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[descuento]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Descuento&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
@@ -8192,14 +8048,8 @@ FROM            clientes INNER JOIN
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[cliente_id]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[venta_id]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_Tiempo&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Venta_int]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_TipoDocumento&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
@@ -8210,16 +8060,28 @@ FROM            clientes INNER JOIN
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Origen de OLE DB.Salidas[Salida de origen de OLE DB].Columnas[empleado_id]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[ID_Venta_int]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_Venta&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Ingresos_dec]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Ingresos&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Precio_Unitario_dec]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Precio_Unitario&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Conversión de datos.Salidas[Salida de conversión de datos].Columnas[Utilidad_Bruta_dec]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Utilidad_Bruta&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
@@ -8238,6 +8100,19 @@ FROM            clientes INNER JOIN
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_TipoDocumento\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
